@@ -2,25 +2,28 @@
 % Please edit documentation in R/batch_writer.R
 \name{batch_writer}
 \alias{batch_writer}
-\title{Write an sbatch job file}
+\title{Write a slurm batch script file}
 \usage{
 batch_writer(
   commands,
   name,
-  mem,
+  R = "4.0.0",
+  mem = NA,
   time = NA,
   nodes = 1,
   threads = 1,
-  R = "4.0.0",
-  email = "alejandro.ochoa@duke.edu"
+  email = NA
 )
 }
 \arguments{
 \item{commands}{A character vector of commands to run, one per line.}
 
-\item{name}{Short name for job, for queue file, and also for stdout/stderr output paths}
+\item{name}{Short name for for batch script file, job, and stdout/stderr output paths}
+
+\item{R}{Specify R version, to load module (\code{NA} prevents loading R).}
 
 \item{mem}{Memory limit.
+\code{NA} (default) is no memory limit.
 May be a string like \verb{1G}, whatever sbatch accepts.}
 
 \item{time}{Time limit.
@@ -31,32 +34,29 @@ May be a string like \code{1:00:00}, whatever sbatch accepts.}
 
 \item{threads}{Number of tasks per node (default 1).}
 
-\item{R}{Specify R version, to load module (\code{NA} prevents loading R).}
-
 \item{email}{Address to receive emails about job completion.}
 }
 \description{
-A wrapper around writing the script given the desired command, a short name for the job, a memory limit, and many optional parameters.
-Defaults are for my current setup (my email, latest R version on cluster).
+A wrapper around writing the script given the desired command, a short name for the job, and many optional parameters.
+Defaults are for my current setup (latest R version on cluster).
 }
 \examples{
 
 # set desired parameters
 commands <- 'time echo "Hello world!"'
 name <- 'hola'
-mem <- '1G'
 
 # writes file `hola.q`
 batch_writer(
     commands,
-    name,
-    mem
+    name
 )
 
 # cleanup
-file.remove( paste0( name, '.q' ) )
+batch_cleanup( name )
 
 }
 \seealso{
-\verb{\link{batch_submit}} to submit these batch files
+\verb{\link{batch_submit}} to submit slurm batch scripts.
+\verb{\link{batch_cleanup}} to remove slurm batch scripts.
 }

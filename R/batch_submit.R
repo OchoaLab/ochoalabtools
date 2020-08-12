@@ -1,6 +1,6 @@
-#' Submit an existing batch job file
+#' Submit an existing slurm batch script
 #'
-#' Given an existing sbatch job file, this script calls `sbatch` with parameters and gets job submitted.
+#' Given an existing batch script, this script calls `sbatch` with parameters and gets job submitted.
 #' Ideal to simplify big loops.
 #'
 #' @param name Either the full batch job file path, or its base name (excluding the extension `.q`).
@@ -25,10 +25,11 @@
 #' batch_submit( 'hola' )
 #'
 #' # cleanup
-#' file.remove( paste0( name, '.q' ) )
+#' batch_cleanup( name )
 #' 
 #' @seealso
-#' `\link{batch_writer}` to write these batch files
+#' `\link{batch_writer}` to write slurm batch scripts.
+#' `\link{batch_cleanup}` to remove slurm batch scripts.
 #' 
 #' @export
 batch_submit <- function(
@@ -39,16 +40,9 @@ batch_submit <- function(
     if ( missing( name ) )
         stop('`name` is required!')
 
-    # batch file must already exist
-    # make sure it does exist, potentially with missing extension
-    if ( file.exists( name ) ) {
-        file <- name
-    } else {
-        file <- paste0( name, '.q' )
-        if ( !file.exists( file ) )
-            stop( 'neither `name` nor `name`.q are existing files!' )
-    }
-    
+    # finds existing files (adds extension if needed), dies if non-existent
+    file <- batch_script( name )
+
     # submit job!
     system2(
         'sbatch',

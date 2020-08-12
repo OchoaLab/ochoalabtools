@@ -5,3 +5,8 @@
 # 2020-08-10 - ochoalabtools 1.0.1.9000
 
 * Added functions `batch_writer` and `batch_submit`, for automated job creation with `sbatch`.
+
+# 2020-08-12 - ochoalabtools 1.0.2.9000
+
+* Added function `batch_cleanup` to remove slurm batch scripts that have already been submitted.
+* Improved function `batch_writer` defaults to write smaller files with less information by default, including no email notifications by default.

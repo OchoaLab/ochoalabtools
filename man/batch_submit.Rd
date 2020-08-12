@@ -2,7 +2,7 @@
 % Please edit documentation in R/batch_submit.R
 \name{batch_submit}
 \alias{batch_submit}
-\title{Submit an existing batch job file}
+\title{Submit an existing slurm batch script}
 \usage{
 batch_submit(name, partition = "biostat")
 }
@@ -13,7 +13,7 @@ Must exist.}
 \item{partition}{The partition to submit to, by default \code{biostat}.}
 }
 \description{
-Given an existing sbatch job file, this script calls \code{sbatch} with parameters and gets job submitted.
+Given an existing batch script, this script calls \code{sbatch} with parameters and gets job submitted.
 Ideal to simplify big loops.
 }
 \examples{
@@ -34,9 +34,10 @@ batch_writer(
 batch_submit( 'hola' )
 
 # cleanup
-file.remove( paste0( name, '.q' ) )
+batch_cleanup( name )
 
 }
 \seealso{
-\verb{\link{batch_writer}} to write these batch files
+\verb{\link{batch_writer}} to write slurm batch scripts.
+\verb{\link{batch_cleanup}} to remove slurm batch scripts.
 }
