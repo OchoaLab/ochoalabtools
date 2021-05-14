@@ -10,3 +10,7 @@
 
 * Added function `batch_cleanup` to remove slurm batch scripts that have already been submitted.
 * Improved function `batch_writer` defaults to write smaller files with less information by default, including no email notifications by default.
+
+# 2021-05-14 - ochoalabtools 1.0.3.9000
+
+* Function `batch_writer` updated call to `readr::write_lines` to use `file` instead of `path` argument, the latter of which is now deprecated (fixes deprecation warning message).

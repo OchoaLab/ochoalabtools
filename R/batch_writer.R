@@ -118,6 +118,6 @@ batch_writer <- function(
     # write script to file
     readr::write_lines(
         x = commands,
-        path = file
+        file = file
     )
 }
