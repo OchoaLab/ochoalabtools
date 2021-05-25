@@ -7,9 +7,12 @@
 fig_width(journal = c("plos", "pnas"), size = c("max", "min", "mid"))
 }
 \arguments{
-\item{journal}{String specifying journal of interest}
+\item{journal}{String specifying journal of interest.}
 
 \item{size}{Desired size range ("max" and "min" are always defined, "mid" is non-NA in some cases).}
+}
+\value{
+The desired width, in inches.
 }
 \description{
 Returns by default maximum width values in inches (~ 7-7.5) for figures according to various journal specifications.

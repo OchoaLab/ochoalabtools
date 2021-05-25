@@ -7,7 +7,10 @@
 fig_height(journal = c("plos", "pnas"))
 }
 \arguments{
-\item{journal}{String specifying journal of interest}
+\item{journal}{String specifying journal of interest.}
+}
+\value{
+The maximum height, in inches.
 }
 \description{
 Returns maximum height values in inches (~ 8.7) for figures according to various journal specifications.

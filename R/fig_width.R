@@ -3,8 +3,10 @@
 #' Returns by default maximum width values in inches (~ 7-7.5) for figures according to various journal specifications.
 #' It also optionally returns minimum (~ 2.6-3.5) and mid values (~ 4.3), for fractional column sizes, if defined.
 #'
-#' @param journal String specifying journal of interest
+#' @param journal String specifying journal of interest.
 #' @param size Desired size range ("max" and "min" are always defined, "mid" is non-NA in some cases).
+#'
+#' @return The desired width, in inches.
 #'
 #' @examples
 #' fig_width('plos')

@@ -17,7 +17,7 @@
 
 # 2021-05-25 - ochoalabtools 1.0.4.9000
 
-* Added functions `fig_height` and `fig_width` containing dimensions limits from some journals (currently just "plos" and "pnas", though checked "genetics" and "nature genetics" and found no limits specified).
+* Added functions `fig_height`, `fig_width`, and `fig_scale` containing dimensions limits from some journals, and a simple scale calculator for big figures (currently just "plos" and "pnas", though checked "genetics" and "nature genetics" and found no limits specified).
   - This added `measurements` R package dependency.
   - Added tests for these functions only (other functions have no tests yet).
 * Corrected documentation (all functions) to use markdown links correctly.

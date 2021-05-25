@@ -3,7 +3,9 @@
 #' Returns maximum height values in inches (~ 8.7) for figures according to various journal specifications.
 #' Typically there is no minimum.
 #'
-#' @param journal String specifying journal of interest
+#' @param journal String specifying journal of interest.
+#'
+#' @return The maximum height, in inches.
 #'
 #' @examples
 #' fig_height('plos')
