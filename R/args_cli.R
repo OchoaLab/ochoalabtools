@@ -1,6 +1,6 @@
 #' Get arguments from the command line interface
 #'
-#' A simple wrapper around `commandArgs` that sets `trailingOnly = TRUE`, reducing typing.
+#' A simple wrapper around [commandArgs()] that sets `trailingOnly = TRUE`, reducing typing.
 #'
 #' @return A vector of command line arguments (as other programming languages would return them, unlike the crummy R default)
 #'

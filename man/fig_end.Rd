@@ -7,8 +7,8 @@
 fig_end()
 }
 \description{
-\code{fig_end} closes the PDF device created by \code{fig_start}.
-It's simply a wrapper to \verb{\link[grDevices]\{dev.off\}} that returns invisibly and saves on typing.
+\code{fig_end} closes the PDF device created by \code{\link[=fig_start]{fig_start()}}.
+It's simply a wrapper to \code{\link[grDevices:dev]{grDevices::dev.off()}} that returns invisibly and saves typing.
 }
 \examples{
 # fig_start('my_plot')

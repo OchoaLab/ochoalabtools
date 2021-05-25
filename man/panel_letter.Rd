@@ -12,14 +12,14 @@ Mandatory, will stop if missing.}
 
 \item{cex}{The character expansion factor (default 1.5 makes it larger than the ordinary title, to distinguish them clearly if also present).}
 
-\item{line}{The margin line where the text is placed (default 0.5 matches the title line default in \verb{\link{fig_start}}).}
+\item{line}{The margin line where the text is placed (default 0.5 matches the title line default in \code{\link[=fig_start]{fig_start()}}).}
 
 \item{adj}{The text adjustment in the reading direction (default 0 is all the way to the left).
 
 It is a copy of an internal function in \code{popkin}, where it is used by \code{plot_popkin} when there are multiple panels.}
 }
 \description{
-This is a wrapper around \verb{\link[graphics]\{mtext\}} with useful default values for this setting.
+This is a wrapper around \code{\link[graphics:mtext]{graphics::mtext()}} with useful default values for this setting.
 See that function for more details.
 Panel letters are placed as if they were titles (preserves \code{side = 3} hardcoded default).
 }

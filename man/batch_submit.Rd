@@ -38,6 +38,6 @@ batch_cleanup( name )
 
 }
 \seealso{
-\verb{\link{batch_writer}} to write slurm batch scripts.
-\verb{\link{batch_cleanup}} to remove slurm batch scripts.
+\code{\link[=batch_writer]{batch_writer()}} to write slurm batch scripts.
+\code{\link[=batch_cleanup]{batch_cleanup()}} to remove slurm batch scripts.
 }

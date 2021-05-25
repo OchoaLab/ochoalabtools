@@ -1,13 +1,13 @@
 #' Add a large panel letter to the top left of the panel
 #'
-#' This is a wrapper around `\link[graphics]{mtext}` with useful default values for this setting.
+#' This is a wrapper around [graphics::mtext()] with useful default values for this setting.
 #' See that function for more details.
 #' Panel letters are placed as if they were titles (preserves `side = 3` hardcoded default).
 #'
 #' @param letter The letter to display.
 #' Mandatory, will stop if missing.
 #' @param cex The character expansion factor (default 1.5 makes it larger than the ordinary title, to distinguish them clearly if also present).
-#' @param line The margin line where the text is placed (default 0.5 matches the title line default in `\link{fig_start}`).
+#' @param line The margin line where the text is placed (default 0.5 matches the title line default in [fig_start()]).
 #' @param adj The text adjustment in the reading direction (default 0 is all the way to the left).
 #'
 #' It is a copy of an internal function in `popkin`, where it is used by `plot_popkin` when there are multiple panels.

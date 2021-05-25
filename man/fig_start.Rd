@@ -39,7 +39,7 @@ fig_start(
 \item{mar_r}{Right margin size, in margin lines (default 0).
 \code{mar_pad} gets added to this value to produce the final margins.}
 
-\item{mar}{A vector with four elements (in the format \verb{\link[graphics]\{par\}} expects, as an alternative specification.
+\item{mar}{A vector with four elements (in the format \code{\link[graphics:par]{graphics::par()}} expects, as an alternative specification.
 \code{mar_pad} gets added to this vector to produce the final margins.
 The individual margins above are used if \code{mar = NULL} (default).}
 
@@ -47,8 +47,8 @@ The individual margins above are used if \code{mar = NULL} (default).}
 
 \item{verbose}{If \code{TRUE} (default), prints a message indicating the path of the file that was created.
 
-The PDF is created via \verb{\link[grDevices]\{pdf\}}.
-Fonts and lines are bolded by setting all of the following parameters to \code{2} via \verb{\link[graphics]\{par\}}:
+The PDF is created via \code{\link[grDevices:pdf]{grDevices::pdf()}}.
+Fonts and lines are bolded by setting all of the following parameters to \code{2} via \code{\link[graphics:par]{graphics::par()}}:
 \code{font}, \code{font.main}, \code{font.sub}, \code{font.lab}, \code{font.axis},  and \code{lwd}.
 Similarly, titles and axis labels are placed closer to the figure by setting \code{mgp = c(2, 0.5, 0)},
 and the approximate number of tickmarks is reduced by setting \code{lab = c(3, 3, 7)}.}

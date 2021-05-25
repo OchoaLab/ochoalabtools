@@ -32,8 +32,8 @@
 #' batch_cleanup( name )
 #' 
 #' @seealso
-#' `\link{batch_submit}` to submit slurm batch scripts.
-#' `\link{batch_cleanup}` to remove slurm batch scripts.
+#' [batch_submit()] to submit slurm batch scripts.
+#' [batch_cleanup()] to remove slurm batch scripts.
 #'
 #' @export
 batch_writer <- function(

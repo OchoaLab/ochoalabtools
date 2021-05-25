@@ -14,3 +14,7 @@
 # 2021-05-14 - ochoalabtools 1.0.3.9000
 
 * Function `batch_writer` updated call to `readr::write_lines` to use `file` instead of `path` argument, the latter of which is now deprecated (fixes deprecation warning message).
+
+# 2021-05-25 - ochoalabtools 1.0.4.9000
+
+* Corrected documentation (all functions) to use markdown links correctly.

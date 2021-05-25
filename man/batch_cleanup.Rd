@@ -31,6 +31,6 @@ batch_cleanup( name )
 
 }
 \seealso{
-\verb{\link{batch_writer}} to write slurm batch scripts.
-\verb{\link{batch_submit}} to submit slurm batch scripts.
+\code{\link[=batch_writer]{batch_writer()}} to write slurm batch scripts.
+\code{\link[=batch_submit]{batch_submit()}} to submit slurm batch scripts.
 }

@@ -57,6 +57,6 @@ batch_cleanup( name )
 
 }
 \seealso{
-\verb{\link{batch_submit}} to submit slurm batch scripts.
-\verb{\link{batch_cleanup}} to remove slurm batch scripts.
+\code{\link[=batch_submit]{batch_submit()}} to submit slurm batch scripts.
+\code{\link[=batch_cleanup]{batch_cleanup()}} to remove slurm batch scripts.
 }

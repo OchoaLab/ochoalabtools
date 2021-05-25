@@ -15,14 +15,14 @@
 #' `mar_pad` gets added to this value to produce the final margins.
 #' @param mar_r Right margin size, in margin lines (default 0).
 #' `mar_pad` gets added to this value to produce the final margins.
-#' @param mar A vector with four elements (in the format `\link[graphics]{par}` expects, as an alternative specification.
+#' @param mar A vector with four elements (in the format [graphics::par()] expects, as an alternative specification.
 #' `mar_pad` gets added to this vector to produce the final margins.
 #' The individual margins above are used if `mar = NULL` (default).
 #' @param mar_pad Margin padding applied to all margins.
 #' @param verbose If `TRUE` (default), prints a message indicating the path of the file that was created.
 #'
-#' The PDF is created via `\link[grDevices]{pdf}`.
-#' Fonts and lines are bolded by setting all of the following parameters to `2` via `\link[graphics]{par}`:
+#' The PDF is created via [grDevices::pdf()].
+#' Fonts and lines are bolded by setting all of the following parameters to `2` via [graphics::par()]:
 #' `font`, `font.main`, `font.sub`, `font.lab`, `font.axis`,  and `lwd`.
 #' Similarly, titles and axis labels are placed closer to the figure by setting `mgp = c(2, 0.5, 0)`,
 #' and the approximate number of tickmarks is reduced by setting `lab = c(3, 3, 7)`.

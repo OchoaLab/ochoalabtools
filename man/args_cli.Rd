@@ -10,7 +10,7 @@ args_cli()
 A vector of command line arguments (as other programming languages would return them, unlike the crummy R default)
 }
 \description{
-A simple wrapper around \code{commandArgs} that sets \code{trailingOnly = TRUE}, reducing typing.
+A simple wrapper around \code{\link[=commandArgs]{commandArgs()}} that sets \code{trailingOnly = TRUE}, reducing typing.
 }
 \examples{
 args <- args_cli()
