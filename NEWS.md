@@ -1,23 +1,28 @@
-# 2020-05-22 - ochoalabtools 1.0.0.9000
+# ochoalabtools 1.0.0.9000 (2020-05-22)
 
 * First GitHub release!  Includes `args_cli`, `fig_start`, `fig_end`, and `panel_letter` functions.
 
-# 2020-08-10 - ochoalabtools 1.0.1.9000
+# ochoalabtools 1.0.1.9000 (2020-08-10)
 
 * Added functions `batch_writer` and `batch_submit`, for automated job creation with `sbatch`.
 
-# 2020-08-12 - ochoalabtools 1.0.2.9000
+# ochoalabtools 1.0.2.9000 (2020-08-12)
 
 * Added function `batch_cleanup` to remove slurm batch scripts that have already been submitted.
 * Improved function `batch_writer` defaults to write smaller files with less information by default, including no email notifications by default.
 
-# 2021-05-14 - ochoalabtools 1.0.3.9000
+# ochoalabtools 1.0.3.9000 (2021-05-14)
 
 * Function `batch_writer` updated call to `readr::write_lines` to use `file` instead of `path` argument, the latter of which is now deprecated (fixes deprecation warning message).
 
-# 2021-05-25 - ochoalabtools 1.0.4.9000
+# ochoalabtools 1.0.4.9000 (2021-05-25)
 
 * Added functions `fig_height`, `fig_width`, and `fig_scale` containing dimensions limits from some journals, and a simple scale calculator for big figures (currently just "plos" and "pnas", though checked "genetics" and "nature genetics" and found no limits specified).
   - This added `measurements` R package dependency.
   - Added tests for these functions only (other functions have no tests yet).
 * Corrected documentation (all functions) to use markdown links correctly.
+
+# ochoalabtools 1.0.5.9000 (2021-06-23)
+
+- Reformatted this `NEWS.md` slightly to improve its automatic parsing.
+
