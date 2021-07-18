@@ -8,7 +8,8 @@
 #' Mandatory, will stop if missing.
 #' @param cex The character expansion factor (default 1.5 makes it larger than the ordinary title, to distinguish them clearly if also present).
 #' @param line The margin line where the text is placed (default 0.5 matches the title line default in [fig_start()]).
-#' @param adj The text adjustment in the reading direction (default 0 is all the way to the left).
+#' @param adj The text adjustment in the reading direction (default -0.1 is slightly to the left of the plotting area, over the left margin).
+#' Might need to be adjusted depending on margins.
 #'
 #' It is a copy of an internal function in `popkin`, where it is used by `plot_popkin` when there are multiple panels.
 #'
@@ -19,7 +20,7 @@
 #' panel_letter('A')
 #' 
 #' @export
-panel_letter <- function(letter, cex = 1.5, line = 0.5, adj = 0) {
+panel_letter <- function(letter, cex = 1.5, line = 0.5, adj = -0.1) {
     # letter is the only thing that is required
     if ( missing( letter ) )
         stop('`letter` is required!')

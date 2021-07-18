@@ -26,3 +26,7 @@
 
 - Reformatted this `NEWS.md` slightly to improve its automatic parsing.
 
+# ochoalabtools 1.0.6.9000 (2021-07-18)
+
+- Function `panel_letter` changed default value for parameter `adj` from 0 to -0.1, to match the analogous internal function in `popkin` and to have letters lay over margin area instead of over plot area.
+
