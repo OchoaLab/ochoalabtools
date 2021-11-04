@@ -4,7 +4,7 @@
 \alias{panel_letter}
 \title{Add a large panel letter to the top left of the panel}
 \usage{
-panel_letter(letter, cex = 1.5, line = 0.5, adj = 0)
+panel_letter(letter, cex = 1.5, line = 0.5, adj = -0.1)
 }
 \arguments{
 \item{letter}{The letter to display.
@@ -14,7 +14,8 @@ Mandatory, will stop if missing.}
 
 \item{line}{The margin line where the text is placed (default 0.5 matches the title line default in \code{\link[=fig_start]{fig_start()}}).}
 
-\item{adj}{The text adjustment in the reading direction (default 0 is all the way to the left).
+\item{adj}{The text adjustment in the reading direction (default -0.1 is slightly to the left of the plotting area, over the left margin).
+Might need to be adjusted depending on margins.
 
 It is a copy of an internal function in \code{popkin}, where it is used by \code{plot_popkin} when there are multiple panels.}
 }
