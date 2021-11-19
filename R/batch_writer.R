@@ -14,6 +14,7 @@
 #' May be a string like `1:00:00`, whatever sbatch accepts.
 #' @param nodes Number of nodes to use (default 1).
 #' @param threads Number of tasks per node (default 1).
+#' @param array Value for array jobs (default NA is not an array job; typical values are numeric ranges passed as strings, such as "1-50", "0-90", or discontinuous ranges such as "1,4,10-20").
 #' @param email Address to receive emails about job completion.
 #'
 #' @examples
@@ -44,6 +45,7 @@ batch_writer <- function(
                          time = NA,
                          nodes = 1,
                          threads = 1,
+                         array = NA,
                          email = NA
                          ) {
     # make sure nothing important is missing
@@ -92,6 +94,13 @@ batch_writer <- function(
             paste0( '#SBATCH --time=', time )
         )
 
+    # add array values if provided
+    if ( !is.na( array ) )
+        header <- c(
+            header,
+            paste0( '#SBATCH --array=', array )
+        )
+    
     # add nodes option if greater than 1
     if ( nodes > 1 )
         header <- c(

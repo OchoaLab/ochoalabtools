@@ -12,6 +12,7 @@ batch_writer(
   time = NA,
   nodes = 1,
   threads = 1,
+  array = NA,
   email = NA
 )
 }
@@ -33,6 +34,8 @@ May be a string like \code{1:00:00}, whatever sbatch accepts.}
 \item{nodes}{Number of nodes to use (default 1).}
 
 \item{threads}{Number of tasks per node (default 1).}
+
+\item{array}{Value for array jobs (default NA is not an array job; typical values are numeric ranges passed as strings, such as "1-50", "0-90", or discontinuous ranges such as "1,4,10-20").}
 
 \item{email}{Address to receive emails about job completion.}
 }

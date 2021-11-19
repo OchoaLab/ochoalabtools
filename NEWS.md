@@ -30,3 +30,6 @@
 
 - Function `panel_letter` changed default value for parameter `adj` from 0 to -0.1, to match the analogous internal function in `popkin` and to have letters lay over margin area instead of over plot area.
 
+# ochoalabtools 1.0.7.9000 (2021-11-19)
+
+- Function `batch_writer` added `array` option for running slurm array jobs.
