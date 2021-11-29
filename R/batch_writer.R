@@ -15,6 +15,10 @@
 #' @param nodes Number of nodes to use (default 1).
 #' @param threads Number of tasks per node (default 1).
 #' @param array Value for array jobs (default NA is not an array job; typical values are numeric ranges passed as strings, such as "1-50", "0-90", or discontinuous ranges such as "1,4,10-20").
+#' @param partition The partition to submit to, by default `biostat`.
+#' If `NA` then no partition is declared (default partition will be used, `common` in DCC?).
+#' @param account Account to use.
+#' `NA` (default) is default account for user.
 #' @param email Address to receive emails about job completion.
 #'
 #' @examples
@@ -46,6 +50,8 @@ batch_writer <- function(
                          nodes = 1,
                          threads = 1,
                          array = NA,
+                         partition = 'biostat',
+                         account = NA,
                          email = NA
                          ) {
     # make sure nothing important is missing
@@ -99,6 +105,20 @@ batch_writer <- function(
         header <- c(
             header,
             paste0( '#SBATCH --array=', array )
+        )
+    
+    # add partition if provided
+    if ( !is.na( partition ) )
+        header <- c(
+            header,
+            paste0( '#SBATCH -p ', partition )
+        )
+    
+    # add account if provided
+    if ( !is.na( account ) )
+        header <- c(
+            header,
+            paste0( '#SBATCH --account=', account )
         )
     
     # add nodes option if greater than 1

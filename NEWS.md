@@ -33,3 +33,8 @@
 # ochoalabtools 1.0.7.9000 (2021-11-19)
 
 - Function `batch_writer` added `array` option for running slurm array jobs.
+
+# ochoalabtools 1.0.8.9000 (2021-11-29)
+
+- Function `batch_writer` added options `partition` and `account`.
+- Function `batch_submit` removed `partition` option.

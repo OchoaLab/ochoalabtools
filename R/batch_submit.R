@@ -5,7 +5,6 @@
 #'
 #' @param name Either the full batch job file path, or its base name (excluding the extension `.q`).
 #' Must exist.
-#' @param partition The partition to submit to, by default `biostat`.
 #'
 #' @examples
 #'
@@ -21,7 +20,7 @@
 #'     mem
 #' )
 #'
-#' # this submits `hola.q` to `biostat` partition:
+#' # this submits `hola.q`:
 #' batch_submit( 'hola' )
 #'
 #' # cleanup
@@ -32,10 +31,7 @@
 #' [batch_cleanup()] to remove slurm batch scripts.
 #' 
 #' @export
-batch_submit <- function(
-                         name,
-                         partition = 'biostat'
-                         ) {
+batch_submit <- function( name ) {
     # make sure nothing important is missing
     if ( missing( name ) )
         stop('`name` is required!')
@@ -46,9 +42,6 @@ batch_submit <- function(
     # submit job!
     system2(
         'sbatch',
-        args = c(
-            '-p', partition,
-            file
-        )
+        args = file
     )
 }

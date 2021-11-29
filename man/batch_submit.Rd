@@ -4,13 +4,11 @@
 \alias{batch_submit}
 \title{Submit an existing slurm batch script}
 \usage{
-batch_submit(name, partition = "biostat")
+batch_submit(name)
 }
 \arguments{
 \item{name}{Either the full batch job file path, or its base name (excluding the extension \code{.q}).
 Must exist.}
-
-\item{partition}{The partition to submit to, by default \code{biostat}.}
 }
 \description{
 Given an existing batch script, this script calls \code{sbatch} with parameters and gets job submitted.
@@ -30,7 +28,7 @@ batch_writer(
     mem
 )
 
-# this submits `hola.q` to `biostat` partition:
+# this submits `hola.q`:
 batch_submit( 'hola' )
 
 # cleanup

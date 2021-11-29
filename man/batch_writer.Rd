@@ -13,6 +13,8 @@ batch_writer(
   nodes = 1,
   threads = 1,
   array = NA,
+  partition = "biostat",
+  account = NA,
   email = NA
 )
 }
@@ -36,6 +38,12 @@ May be a string like \code{1:00:00}, whatever sbatch accepts.}
 \item{threads}{Number of tasks per node (default 1).}
 
 \item{array}{Value for array jobs (default NA is not an array job; typical values are numeric ranges passed as strings, such as "1-50", "0-90", or discontinuous ranges such as "1,4,10-20").}
+
+\item{partition}{The partition to submit to, by default \code{biostat}.
+If \code{NA} then no partition is declared (default partition will be used, \code{common} in DCC?).}
+
+\item{account}{Account to use.
+\code{NA} (default) is default account for user.}
 
 \item{email}{Address to receive emails about job completion.}
 }
