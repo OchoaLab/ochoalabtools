@@ -2,7 +2,7 @@
 % Please edit documentation in R/fig_start.R
 \name{fig_start}
 \alias{fig_start}
-\title{Starts a PDF figure with better defaults}
+\title{Starts a PDF or PNG figure with better defaults}
 \usage{
 fig_start(
   name,
@@ -15,15 +15,19 @@ fig_start(
   mar_r = 0,
   mar = NULL,
   mar_pad = 0.2,
+  png = FALSE,
+  png_res = 600,
   verbose = TRUE
 )
 }
 \arguments{
-\item{name}{The output path, excluding extension (\code{.pdf} is automatically added)}
+\item{name}{The output path, excluding extension (\code{.pdf} or \code{.png} is automatically added)}
 
-\item{width}{Figure width, in inches (default 3)}
+\item{width}{Figure width, in inches (default 3).
+If \code{png = TRUE}, this value gets multiplied by \code{png_res} to result in the final width in pixels.}
 
-\item{height}{Figure height, in inches (default 3)}
+\item{height}{Figure height, in inches (default 3).
+If \code{png = TRUE}, this value gets multiplied by \code{png_res} to result in the final height in pixels.}
 
 \item{bg}{Figure background color (default "white")}
 
@@ -45,17 +49,24 @@ The individual margins above are used if \code{mar = NULL} (default).}
 
 \item{mar_pad}{Margin padding applied to all margins.}
 
+\item{png}{If \code{TRUE}, output is a PNG file (default \code{FALSE} results in a PDF file).}
+
+\item{png_res}{Resolution of PNG image in ppi.
+In addition to setting the resolution internally in the file, this scales the \code{width}and \code{height} values (default in inches) to the final pixel values of the output.
+Ignored if \code{png = FALSE}.}
+
 \item{verbose}{If \code{TRUE} (default), prints a message indicating the path of the file that was created.
 
-The PDF is created via \code{\link[grDevices:pdf]{grDevices::pdf()}}.
+The PDF or PNG is created via \code{\link[grDevices:pdf]{grDevices::pdf()}} or \code{\link[grDevices:png]{grDevices::png()}}, respectively.
 Fonts and lines are bolded by setting all of the following parameters to \code{2} via \code{\link[graphics:par]{graphics::par()}}:
 \code{font}, \code{font.main}, \code{font.sub}, \code{font.lab}, \code{font.axis},  and \code{lwd}.
 Similarly, titles and axis labels are placed closer to the figure by setting \code{mgp = c(2, 0.5, 0)},
 and the approximate number of tickmarks is reduced by setting \code{lab = c(3, 3, 7)}.}
 }
 \description{
-Creates a PDF figure with dimensions that default approximately to a single column on a two-column paper, bolds text, reduces space between labels and the figure, and sets other improved defaults for margins.
+Creates a PDF or PNG figure with dimensions that default approximately to a single column on a two-column paper, bolds text, reduces space between labels and the figure, and sets other improved defaults for margins.
 The goal is to create publication- and presentation-quality figures with few keystrokes.
+PNG version is by default high resolution (600 ppi) and scales dimensions according to this resolution to get images that match their PDF counterparts as much as possible.
 }
 \examples{
 ### simple square figure with nice margins

@@ -38,3 +38,7 @@
 
 - Function `batch_writer` added options `partition` and `account`.
 - Function `batch_submit` removed `partition` option.
+
+# ochoalabtools 1.0.9.9000 (2024-07-23)
+
+- Function `fig_start` added options `png` and `png_res`, to output nice PNG files comparable to their PDF counterparts.

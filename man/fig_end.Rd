@@ -2,12 +2,12 @@
 % Please edit documentation in R/fig_end.R
 \name{fig_end}
 \alias{fig_end}
-\title{Ends a PDF figure}
+\title{Ends a PDF or PNG figure}
 \usage{
 fig_end()
 }
 \description{
-\code{fig_end} closes the PDF device created by \code{\link[=fig_start]{fig_start()}}.
+\code{fig_end} closes the PDF or PNG device created by \code{\link[=fig_start]{fig_start()}}.
 It's simply a wrapper to \code{\link[grDevices:dev]{grDevices::dev.off()}} that returns invisibly and saves typing.
 }
 \examples{

@@ -1,11 +1,14 @@
-#' Starts a PDF figure with better defaults
+#' Starts a PDF or PNG figure with better defaults
 #'
-#' Creates a PDF figure with dimensions that default approximately to a single column on a two-column paper, bolds text, reduces space between labels and the figure, and sets other improved defaults for margins.
+#' Creates a PDF or PNG figure with dimensions that default approximately to a single column on a two-column paper, bolds text, reduces space between labels and the figure, and sets other improved defaults for margins.
 #' The goal is to create publication- and presentation-quality figures with few keystrokes.
+#' PNG version is by default high resolution (600 ppi) and scales dimensions according to this resolution to get images that match their PDF counterparts as much as possible.
 #'
-#' @param name The output path, excluding extension (`.pdf` is automatically added)
-#' @param width Figure width, in inches (default 3)
-#' @param height Figure height, in inches (default 3)
+#' @param name The output path, excluding extension (`.pdf` or `.png` is automatically added)
+#' @param width Figure width, in inches (default 3).
+#' If `png = TRUE`, this value gets multiplied by `png_res` to result in the final width in pixels.
+#' @param height Figure height, in inches (default 3).
+#' If `png = TRUE`, this value gets multiplied by `png_res` to result in the final height in pixels.
 #' @param bg Figure background color (default "white")
 #' @param mar_b Bottom margin size, in margin lines (default 3).
 #' `mar_pad` gets added to this value to produce the final margins.
@@ -19,9 +22,13 @@
 #' `mar_pad` gets added to this vector to produce the final margins.
 #' The individual margins above are used if `mar = NULL` (default).
 #' @param mar_pad Margin padding applied to all margins.
+#' @param png If `TRUE`, output is a PNG file (default `FALSE` results in a PDF file).
+#' @param png_res Resolution of PNG image in ppi.
+#' In addition to setting the resolution internally in the file, this scales the `width`and `height` values (default in inches) to the final pixel values of the output.
+#' Ignored if `png = FALSE`.
 #' @param verbose If `TRUE` (default), prints a message indicating the path of the file that was created.
 #'
-#' The PDF is created via [grDevices::pdf()].
+#' The PDF or PNG is created via [grDevices::pdf()] or [grDevices::png()], respectively.
 #' Fonts and lines are bolded by setting all of the following parameters to `2` via [graphics::par()]:
 #' `font`, `font.main`, `font.sub`, `font.lab`, `font.axis`,  and `lwd`.
 #' Similarly, titles and axis labels are placed closer to the figure by setting `mgp = c(2, 0.5, 0)`,
@@ -51,21 +58,33 @@ fig_start <- function(
                       mar_r = 0,
                       mar = NULL,
                       mar_pad = 0.2,
+                      png = FALSE,
+                      png_res = 600,
                       verbose = TRUE
                       ){
     # create output file name
-    file_out <- paste0(name, '.pdf')
+    file_out <- paste0( name, '.', if ( png ) 'png' else 'pdf' )
     # indicate which file was created, handy for immediate inspection
-    if (verbose) 
-        message('Writing: ', file_out)
+    if ( verbose ) 
+        message( 'Writing: ', file_out )
 
     # create PDF
-    grDevices::pdf(
-                   file_out,
-                   width = width,
-                   height = height,
-                   bg = bg
-               )
+    if ( png ) {
+        grDevices::png(
+                       file_out,
+                       width = width * png_res,
+                       height = height * png_res,
+                       bg = bg,
+                       res = png_res
+                   )
+    } else {
+        grDevices::pdf(
+                       file_out,
+                       width = width,
+                       height = height,
+                       bg = bg
+                   )
+    }
     
     # bold fonts and lines
     graphics::par(

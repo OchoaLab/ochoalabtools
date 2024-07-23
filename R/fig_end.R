@@ -1,6 +1,6 @@
-#' Ends a PDF figure
+#' Ends a PDF or PNG figure
 #'
-#' `fig_end` closes the PDF device created by [fig_start()].
+#' `fig_end` closes the PDF or PNG device created by [fig_start()].
 #' It's simply a wrapper to [grDevices::dev.off()] that returns invisibly and saves typing.
 #' 
 #' @examples
