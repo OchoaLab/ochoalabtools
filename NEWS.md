@@ -42,3 +42,7 @@
 # ochoalabtools 1.0.9.9000 (2024-07-23)
 
 - Function `fig_start` added options `png` and `png_res`, to output nice PNG files comparable to their PDF counterparts.
+
+# ochoalabtools 1.0.10.9000 (2025-12-18)
+
+- Function `fig_start` added option `wh`, to provide width and height together.  This is most convenient when using `fig_scale()` to set these values.

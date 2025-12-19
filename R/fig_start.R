@@ -9,6 +9,9 @@
 #' If `png = TRUE`, this value gets multiplied by `png_res` to result in the final width in pixels.
 #' @param height Figure height, in inches (default 3).
 #' If `png = TRUE`, this value gets multiplied by `png_res` to result in the final height in pixels.
+#' @param wh Width and height together, optionally insead of separate as above.
+#' Convenient way to pass value of [fig_scale()], for example.
+#' If not `NULL`, both `width` and `height` are ignored.
 #' @param bg Figure background color (default "white")
 #' @param mar_b Bottom margin size, in margin lines (default 3).
 #' `mar_pad` gets added to this value to produce the final margins.
@@ -51,6 +54,7 @@ fig_start <- function(
                       name,
                       width = 3,
                       height = 3,
+                      wh = NULL,
                       bg = 'white',
                       mar_b = 3,
                       mar_l = 3,
@@ -67,6 +71,12 @@ fig_start <- function(
     # indicate which file was created, handy for immediate inspection
     if ( verbose ) 
         message( 'Writing: ', file_out )
+
+    # set dimensions with `wh` if provided
+    if ( !is.null( wh ) ) {
+        width <- wh[1]
+        height <- wh[2]
+    }
 
     # create PDF
     if ( png ) {

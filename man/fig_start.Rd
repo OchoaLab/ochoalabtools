@@ -8,6 +8,7 @@ fig_start(
   name,
   width = 3,
   height = 3,
+  wh = NULL,
   bg = "white",
   mar_b = 3,
   mar_l = 3,
@@ -28,6 +29,10 @@ If \code{png = TRUE}, this value gets multiplied by \code{png_res} to result in 
 
 \item{height}{Figure height, in inches (default 3).
 If \code{png = TRUE}, this value gets multiplied by \code{png_res} to result in the final height in pixels.}
+
+\item{wh}{Width and height together, optionally insead of separate as above.
+Convenient way to pass value of \code{\link[=fig_scale]{fig_scale()}}, for example.
+If not \code{NULL}, both \code{width} and \code{height} are ignored.}
 
 \item{bg}{Figure background color (default "white")}
 
